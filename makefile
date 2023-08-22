@@ -6,7 +6,7 @@
 #    By: saichaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 15:15:19 by saichaou          #+#    #+#              #
-#    Updated: 2023/08/20 16:12:00 by saichaou         ###   ########.fr        #
+#    Updated: 2023/08/22 13:03:02 by saichaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,15 +32,15 @@ NAME_SERVER	= server
 
 NAME_CLIENT	= client
 
-CC			= gcc
+CC			= cc
 
 CFLAGS		= -Wall -Wextra -Werror
 
 INCS		= -I ./include/
 
-LIBS		= include/ft_printf/libftprintf.a -L -I include/ft_printf/libftprintf.h
+LIBS		= -Linclude/ft_printf/ -l:libftprintf.a -I include/ft_printf/libftprintf.h
 
-FT_PRINTF	= include/ft_printf/libftprintf.a
+LIBFT		= include/libftprintf.a
 
 all:		${OBJS_DIR} ${NAME_SERVER} ${NAME_CLIENT}
 

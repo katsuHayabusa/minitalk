@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 13:18:11 by saichaou          #+#    #+#             */
-/*   Updated: 2023/08/20 13:18:55 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:57:32 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,29 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (rep * sign);
+}
+
+size_t	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str)
+	{
+		str++;
+		i++;
+	}
+	return (i);
+}
+
+void	ft_bzero(void *mem, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		((unsigned char *) mem)[i] = '\0';
+		i++;
+	}
 }
