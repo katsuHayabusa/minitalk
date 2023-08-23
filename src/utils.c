@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 13:18:11 by saichaou          #+#    #+#             */
-/*   Updated: 2023/08/22 13:57:32 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:39:12 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ size_t	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str)
+	while (*str)
 	{
 		str++;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:38:42 by saichaou          #+#    #+#             */
-/*   Updated: 2023/08/22 14:02:31 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:57:05 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,29 @@
 
 int main(int argc, char **argv)
 {
-	char	*tab;
+	char	**str;
+	int		i;
+	int		j;
 
-	tab = chartobin(argv[1][0]);
-	ft_printf("%s", tab);
-	(void) argc;
+	if (argc == 3)
+	{
+		str = strtobin(argv[2]);
+		i = 0;
+		while(str[i])
+		{
+			j = 0;
+			while(str[i][j])
+			{	
+				if (str[i][j] == '0')
+					kill(ft_atoi(argv[1]), SIGUSR1);
+				else
+					kill(ft_atoi(argv[1]), SIGUSR2);
+				j++;
+				usleep(100);
+			}
+			i++;
+		}
+	}
 	return (0);
 }
 
@@ -37,50 +55,35 @@ char *chartobin(char c)
     while(c > 0) 
     { 
         if (c % 2 == 0) 
-            chain[7 - i] = '0';  // Store the binary digit in reverse order
-        else 
-            chain[7 - i] = '1';  // Store the binary digit in reverse order
-        c /= 2; 
+            chain[7 - i] = '0';
+		else 
+            chain[7 - i] = '1';
+        c /= 2;
         i++;
     }
     while(7 - i != -1)
     {
-	    chain[7 - i] = '0';
-	    i++;
+		chain[7 - i] = '0';
+		i++;
     }
     return chain;
 }
 
-int	**strtobin(char *str)
+char	**strtobin(char *str)
 {
-	int		**chain;
+	char	**chain;
 	int		i;
-	int		j;
 
-	chain = malloc(ft_strlen(str) * sizeof(int *));
-	if (!str)
+	chain = malloc(ft_strlen(str) * sizeof(char *));
+	if (!chain)
 		return (NULL);
 	i = 0;
-	while (str[i])
+	while ((size_t) i < ft_strlen(str))
 	{
-		ft_printf("occurence numero %d", i);
-		chain[i] = malloc(9 * sizeof(int));
-		if (!chain)
-			return (NULL);
-		j = 8;
-		while (str[i] > 0)
-		{
-			if (str[i] % 2 == 0)
-				chain[i][j]	= 0;
-			else
-				chain[i][j] = 1;
-			j--;
-			str[i] /= 2;
-		}
-		chain[i][j] = '\0';
+		chain[i] = chartobin(str[i]);
 		i++;
 	}
-	chain[i][j] = '\0';
+	chain[i] = NULL;
 	return (chain);
 }
 
