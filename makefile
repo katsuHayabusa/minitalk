@@ -32,7 +32,7 @@ NAME_SERVER	= server
 
 NAME_CLIENT	= client
 
-CC			= cc
+CC		= cc
 
 CFLAGS		= -Wall -Wextra -Werror
 
@@ -40,12 +40,12 @@ INCS		= -I ./include/
 
 LIBS		= -Linclude/ft_printf/ -l:libftprintf.a -I include/ft_printf/libftprintf.h
 
-LIBFT		= include/libftprintf.a
+FT_PRINTF	= include/ft_printf/libftprintf.a
 
 all:		${OBJS_DIR} ${NAME_SERVER} ${NAME_CLIENT}
 
 ${FT_PRINTF}:
-			make -C include/ft_printf/
+			make -C include/ft_printf
 
 ${NAME_SERVER}	: ${OBJS_SERVER} ${FT_PRINTF}
 			${CC} ${CFLAGS} ${OBJS_SERVER} ${LIBS} -o ${NAME_SERVER}
