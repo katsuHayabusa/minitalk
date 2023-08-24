@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 14:16:49 by saichaou          #+#    #+#             */
-/*   Updated: 2023/08/23 17:10:18 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:33:46 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int main() {
 
 void customHandler(int signum) {
 	if (signum == SIGUSR1)
+	{
 		ft_printf("%d", 0);
+	}
 	else
 		ft_printf("%d", 1);
     // Additional handling logic can be added here

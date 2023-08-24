@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:38:42 by saichaou          #+#    #+#             */
-/*   Updated: 2023/08/23 16:57:05 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/08/24 14:55:26 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,18 @@ int main(int argc, char **argv)
 	if (argc == 3)
 	{
 		str = strtobin(argv[2]);
-		i = 0;
-		while(str[i])
+		i = -1;
+		while(str[++i])
 		{
-			j = 0;
-			while(str[i][j])
+			j = -1;
+			while(str[i][++j])
 			{	
 				if (str[i][j] == '0')
 					kill(ft_atoi(argv[1]), SIGUSR1);
 				else
 					kill(ft_atoi(argv[1]), SIGUSR2);
-				j++;
 				usleep(100);
 			}
-			i++;
 		}
 	}
 	return (0);
