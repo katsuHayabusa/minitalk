@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:38:42 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/01 16:39:15 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 16:36:14 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int main(int argc, char **argv)
 	gpause = 1;
 	str = strtobin(argv[2]);
 	send_signal(str, pid);
+	free_all(str, ft_strlen(argv[2]));
+	ft_printf("%d", ft_strlen(argv[2]));
 	return (0);
 }
 

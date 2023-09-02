@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 14:10:15 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/01 15:05:09 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 16:34:21 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	ft_bzero(void *mem, size_t size);
 void	custom_handler(int signum, siginfo_t *info, void *context);
 char	*ft_strjoin(char *str, char c);
 void	ping_pong(int signum);
+void	free_all(char **str, size_t len);
 void	send_signal(char **str, int pid);
 #endif

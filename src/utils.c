@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 13:18:11 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/01 15:59:30 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 16:37:20 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,17 @@ char	*ft_strjoin(char *str, char c)
 	join[i++] = c;
 	join[i] = '\0';
 	return (free(str), join);
+}
+
+void	free_all(char **str, size_t len)
+{
+	size_t	i;
+
+	i = 0;
+	while(i <= len)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
