@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 14:16:49 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/01 15:07:07 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:18:28 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	custom_handler(int signum, siginfo_t *info, void *context)
 		if (c == '\0')
 		{
 			ft_printf("%s\n", str);
+			free(str);
 			str = NULL;
 		}
 		n = 7;

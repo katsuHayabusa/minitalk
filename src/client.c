@@ -6,11 +6,10 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:38:42 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/02 16:36:14 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:14:51 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <minitalk.h>
 
 int	gpause;
@@ -34,41 +33,49 @@ int main(int argc, char **argv)
 	str = strtobin(argv[2]);
 	send_signal(str, pid);
 	free_all(str, ft_strlen(argv[2]));
-	ft_printf("%d", ft_strlen(argv[2]));
 	return (0);
 }
 
 void	ping_pong(int signum)
 {
 	if (signum == SIGUSR1)
-		gpause = 1;
+		gpause = 0;
 }
 
 void	send_signal(char **str, int pid)
 {
 	int	i;
 	int	j;
+	int	time;
 
 	i = 0;
-	if (gpause == 1)
+	time = 0;
+	while (str[i])
 	{
-		while (str[i])
-		{
 			j = 0;
-			while(str[i][j])
+		while(str[i][j])
+		{
+			if (str[i][j] == '0')
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			while (gpause)
 			{
-				if (str[i][j] == '0')
-					kill(pid, SIGUSR1);
-				else
-					kill(pid, SIGUSR2);
-				gpause = 0;
-				usleep(100);
-				j++;
+				if (time == 10)
+				{
+					ft_printf("timeout");
+					return ;
+				}
+ 				usleep (500);
+				time++;
 			}
-			i++;
+			gpause = 1;
+			j++;
 		}
+		i++;
 	}
 }
+
 char *chartobin(char c) 
 { 
     char *chain; 
@@ -76,7 +83,7 @@ char *chartobin(char c)
 
     c = (int) c;
     i = 0; 
-    chain = malloc(9 * sizeof(char)); 
+    chain = malloc(10 * sizeof(char)); 
     if (!chain) 
         return NULL; 
     chain[8] = '\0'; 
@@ -100,13 +107,13 @@ char *chartobin(char c)
 char	**strtobin(char *str)
 {
 	char	**chain;
-	int		i;
+	size_t	i;
 
-	chain = malloc((ft_strlen(str) + 1) * sizeof(char *));
+	chain = malloc((ft_strlen(str) + 2) * sizeof(char *));
 	if (!chain)
 		return (NULL);
 	i = 0;
-	while ((size_t) i <= ft_strlen(str))
+	while (i <= ft_strlen(str))
 	{
 		chain[i] = chartobin(str[i]);
 		i++;
