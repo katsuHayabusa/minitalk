@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	rep;
@@ -40,29 +40,14 @@ int	ft_atoi(const char *str)
 
 size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	if (!str)
 		return (0);
 	i = 0;
-	while (*str)
-	{
-		str++;
+	while(str[i])
 		i++;
-	}
 	return (i);
-}
-
-void	ft_bzero(void *mem, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < size)
-	{
-		((unsigned char *) mem)[i] = '\0';
-		i++;
-	}
 }
 
 char	*ft_strjoin(char *str, char c)
@@ -82,17 +67,4 @@ char	*ft_strjoin(char *str, char c)
 	join[i++] = c;
 	join[i] = '\0';
 	return (free(str), join);
-}
-
-void	free_all(char **str, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while(i <= len)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }

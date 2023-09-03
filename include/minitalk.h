@@ -19,14 +19,10 @@
 # include "ft_printf/libftprintf.h"
 
 void	sig_handler(int signum);
-int		ft_atoi(const char *str);
-char	**strtobin(char *str);
-char	*chartobin(char str);
+int	ft_atoi(char *str);
 size_t	ft_strlen(char *str);
-void	ft_bzero(void *mem, size_t size);
 void	custom_handler(int signum, siginfo_t *info, void *context);
 char	*ft_strjoin(char *str, char c);
-void	ping_pong(int signum);
-void	free_all(char **str, size_t len);
-void	send_signal(char **str, int pid);
+void	send_char(char c, int pid);
+void	set_signal(int signum);
 #endif

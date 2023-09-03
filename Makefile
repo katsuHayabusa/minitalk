@@ -34,7 +34,7 @@ NAME_CLIENT	= client
 
 CC		= cc
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
 INCS		= -I ./include/
 

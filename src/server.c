@@ -19,7 +19,7 @@ int	main(void)
 	ft_printf("%d\n", getpid());
 	new_action.sa_sigaction = custom_handler;
 	sigemptyset(&new_action.sa_mask);
-	new_action.sa_flags = 0;
+	new_action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR2, &new_action, NULL);
 	sigaction(SIGUSR1, &new_action, NULL);
 	while (1)
@@ -34,7 +34,6 @@ void	custom_handler(int signum, siginfo_t *info, void *context)
 	static int	n = 7;
 
 	c += (signum == SIGUSR2) << n--;
-	kill(info->si_pid, SIGUSR1);
 	if (n == -1)
 	{
 		str = ft_strjoin(str, c);
@@ -45,9 +44,11 @@ void	custom_handler(int signum, siginfo_t *info, void *context)
 			ft_printf("%s\n", str);
 			free(str);
 			str = NULL;
+			kill(info->si_pid, SIGUSR2);
 		}
 		n = 7;
 		c = 0;
 	}
+	kill(info->si_pid, SIGUSR1);
 	(void) context;
 }
