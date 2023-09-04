@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 13:18:11 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/02 16:37:20 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/04 10:19:13 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t	ft_strlen(char *str)
 	if (!str)
 		return (0);
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }

@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/04 10:14:17 by saichaou          #+#    #+#             */
+/*   Updated: 2023/09/04 10:21:25 by saichaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
-int gpause;
+int		g_pause;
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	pid;
+	int					i;
+	int					pid;
 	struct sigaction	new_action;
 
 	if (argc != 3)
@@ -29,7 +41,6 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-
 void	send_char(char c, int pid)
 {
 	int	i;
@@ -41,7 +52,7 @@ void	send_char(char c, int pid)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		while(gpause)
+		while (gpause)
 			usleep(50);
 		gpause = 1;
 		i--;
