@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 10:14:17 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/04 10:21:25 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/04 10:33:44 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	if (argc != 3)
 		return (1);
 	i = 0;
-	gpause = 1;
+	g_pause = 1;
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
 		return (1);
@@ -52,9 +52,9 @@ void	send_char(char c, int pid)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		while (gpause)
+		while (g_pause)
 			usleep(50);
-		gpause = 1;
+		g_pause = 1;
 		i--;
 	}	
 }
@@ -62,7 +62,7 @@ void	send_char(char c, int pid)
 void	set_signal(int signum)
 {
 	if (signum == SIGUSR1)
-		gpause = 0;
+		g_pause = 0;
 	if (signum == SIGUSR2)
 		ft_printf("Message reçu\n");
 }
