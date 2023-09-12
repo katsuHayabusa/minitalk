@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: saichaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 15:15:19 by saichaou          #+#    #+#              #
-#    Updated: 2023/08/22 13:03:02 by saichaou         ###   ########.fr        #
+#    Updated: 2023/09/12 13:34:11 by saichaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ NAME_SERVER	= server
 
 NAME_CLIENT	= client
 
+NAME		= minitalk
+
 CC		= cc
 
 CFLAGS		= -Wall -Wextra -Werror -g
@@ -42,7 +44,10 @@ LIBS		= -Linclude/ft_printf/ -l:libftprintf.a -I include/ft_printf/libftprintf.h
 
 FT_PRINTF	= include/ft_printf/libftprintf.a
 
-all:		${OBJS_DIR} ${NAME_SERVER} ${NAME_CLIENT}
+all:		${OBJS_DIR} ${NAME}
+
+${NAME}: ${NAME_SERVER} ${NAME_CLIENT}
+
 
 ${FT_PRINTF}:
 			make -C include/ft_printf

@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 14:16:49 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/12 11:31:39 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:52:38 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	sigaction(SIGUSR2, &new_action, NULL);
 	sigaction(SIGUSR1, &new_action, NULL);
 	while (1)
-		;
+		pause();
 	return (0);
 }
 
