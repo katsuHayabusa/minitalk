@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 14:16:49 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/02 18:18:28 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:31:39 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void)
 {
 	struct sigaction	new_action;
 
-	ft_printf("%d\n", getpid());
+	ft_printf("PID = %d\n", getpid());
 	new_action.sa_sigaction = custom_handler;
 	sigemptyset(&new_action.sa_mask);
 	new_action.sa_flags = SA_SIGINFO;

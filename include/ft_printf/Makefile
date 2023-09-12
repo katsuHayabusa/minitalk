@@ -6,7 +6,7 @@
 #    By: saichaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 12:46:36 by saichaou          #+#    #+#              #
-#    Updated: 2023/08/20 16:31:25 by saichaou         ###   ########.fr        #
+#    Updated: 2023/09/12 11:00:41 by saichaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =	ft_printf.c \
 OBJS = ${SRCS:.c=.o}
 
 NAME = libftprintf.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
