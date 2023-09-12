@@ -6,7 +6,7 @@
 /*   By: saichaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 10:14:17 by saichaou          #+#    #+#             */
-/*   Updated: 2023/09/12 11:20:29 by saichaou         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:37:33 by saichaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,13 @@ void	send_char(char c, int pid)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-
 		t = 0;
 		while (g_pause)
 		{
 			if (t == 100)
 			{
 				ft_printf("TIMEOUT");
-				exit(1) ;
+				exit(1);
 			}
 			usleep(50);
 			t++;
