@@ -6,7 +6,7 @@
 #    By: saichaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 15:15:19 by saichaou          #+#    #+#              #
-#    Updated: 2023/09/12 13:34:11 by saichaou         ###   ########.fr        #
+#    Updated: 2023/09/14 17:29:51 by saichaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ FT_PRINTF	= include/ft_printf/libftprintf.a
 all:		${OBJS_DIR} ${NAME}
 
 ${NAME}: ${NAME_SERVER} ${NAME_CLIENT}
-
 
 ${FT_PRINTF}:
 			make -C include/ft_printf
